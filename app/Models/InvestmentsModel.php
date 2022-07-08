@@ -7,5 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 
 class InvestmentsModel extends Model
 {
-    use HasFactory;
+
+
+    protected $table = "investments";
+    protected $fillable = [
+        "capital",
+        "workingcapital",
+        "wothdrawals",
+        "sales",
+        "profits"
+    ];
+
 }

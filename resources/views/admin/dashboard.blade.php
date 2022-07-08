@@ -2,7 +2,8 @@
 
 @section('content')
 
-@include('admin.menus.adminMenus')
+@include('admin.menus.adminMenus');
+@include('includes.dashboardheader');
 
 <div class="row">
     <div class="col-12">
@@ -20,32 +21,19 @@
     </tr>
   </thead>
   <tbody>
+
+    @foreach ($investments as $investment)
+        
+   
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td></td>
+      <th>{{$investment -> capital}}</th>
+      <td>{{ $investment }}</td>
+      <td>{{ $investment }}</td>
+      <td>{{ $investment }}</td>
+      <td>{{ $investment }}</td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-      <td></td>
-    </tr>
-    <tr>
-      <th scope="row">4</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-      <td></td>
-    </tr>
+
+     @endforeach
   </tbody>
 
 </table>
@@ -53,3 +41,4 @@
 </div>
     
 @endsection
+@include('includes.dashboardfooter');
