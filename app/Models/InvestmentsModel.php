@@ -7,13 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class InvestmentsModel extends Model
 {
-
-
     protected $table = "investments";
     protected $fillable = [
         "capital",
         "workingcapital",
-        "wothdrawals",
+        "withdrawals",
         "sales",
         "profits"
     ];
