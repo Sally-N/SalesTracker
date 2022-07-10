@@ -28,5 +28,13 @@ Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'dash
 Route::get('/initiate', [\App\Http\Controllers\DashboardController::class, 'initiate']);
 
 // add capital
-
 Route::post('/addcapital', [\App\Http\Controllers\DashboardController::class, 'addcapital']);
+
+/// STOCK ROUTES
+
+//get stocks
+Route::get('/stock', [App\Http\Controllers\Controllers\StocksController::class, 'stocks']);
+
+//add stock
+Route::post('/addstock', [\App\Http\Controllers\StocksController:: class, 'addstock']);
+
