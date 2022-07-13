@@ -1,4 +1,3 @@
-
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -20,15 +19,15 @@ class CreateStocksTable extends Migration
             $table->integer('stockquantity');
             $table->integer('stockamount');
             $table->integer('stockprice');
-            $table->integer('salesprice');
-            $table->integer('expectedprofits');
+            $table->integer('sellingprice');
+            $table->integer('profits');
 
 
             ////Fk////
-            $table->integer('fkuser')->unsigned();
-            $table->foreign('fkuser')->references('id')->on('users');
+            // $table->integer('fkuser')->unsigned();
+            $table->foreignId('fkuser')->references('id')->on('users');
             
-            $table->timestamps();
+            $table->timestamps(); 
         });
     }
 

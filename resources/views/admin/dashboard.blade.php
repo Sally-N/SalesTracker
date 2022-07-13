@@ -10,7 +10,7 @@
         <table class="table">
   <thead>
     <tr>
-      <th scope="col">Capial</th>
+      <th scope="col">Capital</th>
       <th scope="col">Working Capital</th>
            <th scope="col">Sales</th>
       <th scope="col">Withdrawals</th>

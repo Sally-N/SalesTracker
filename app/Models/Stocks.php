@@ -12,9 +12,9 @@ class Stocks extends Model
       "itemstocked",
       "stockquantity",
       "stockamount",
-      "stockprice",
-      "salesprice",
-      "expectedprofits",
+      "stockprice", 
+      "sellingprice",
+      "profits",
       "fkuser"
     ];
 }

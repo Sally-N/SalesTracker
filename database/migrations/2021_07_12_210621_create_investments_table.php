@@ -17,14 +17,13 @@ class CreateInvestmentsTable extends Migration
             $table->id();
             $table->integer('capital')->default(0);
             $table->integer('workingcapital')->default(0);
-            $table->integer('sales')->default(0);
             $table->integer('withdrawals')->default(0);
+            $table->integer('sales')->default(0);
             $table->integer('profits')->default(0);
 
-
-            ////Fk////
-            $table->integer('fkuser')->unsigned();
-            $table->foreign ('fkuser')->references('id')->on('users');
+            /////FK///////
+            // $table->integer('fkuser')->unsigned();
+            $table->foreignId('fkuser')->references('id')->on('users');
             $table->timestamps();
         });
     }

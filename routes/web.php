@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('admin.dashboard');
+// Route::get('/', function () {
+//     return view('admin.dashboard');
 
-});
+// });
 
 Auth::routes();
 
@@ -33,8 +33,8 @@ Route::post('/addcapital', [\App\Http\Controllers\DashboardController::class, 'a
 /// STOCK ROUTES
 
 //get stocks
-Route::get('/stock', [App\Http\Controllers\Controllers\StocksController::class, 'stocks']);
+Route::get('/stock', [App\Http\Controllers\StocksController::class, 'stocks']);
 
 //add stock
-Route::post('/addstock', [\App\Http\Controllers\StocksController:: class, 'addstock']);
+Route::post('/addstock', [\App\Http\Controllers\StocksController::class, 'addstock']);
 
