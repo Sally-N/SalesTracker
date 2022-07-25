@@ -38,3 +38,6 @@ Route::get('/stock', [App\Http\Controllers\StocksController::class, 'stocks']);
 //add stock
 Route::post('/addstock', [\App\Http\Controllers\StocksController::class, 'addstock']);
 
+//SALES ROUTEs
+Route::get('/sales', [SalesController::class, 'index']);
+

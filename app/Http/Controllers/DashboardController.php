@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\InvestmentsModel;
+use App\Models\Investment;
 
 class DashboardController extends Controller
 {
@@ -12,7 +12,7 @@ class DashboardController extends Controller
 //     }
 
     public function dashboard(){
-      $investments = InvestmentsModel::all();
+      $investments = Investment::all();
       // echo $investments;
     return view('admin.dashboard',compact('investments'));
 
@@ -21,7 +21,7 @@ class DashboardController extends Controller
 
     public function initiate(){
 
-        $initiate = InvestmentsModel::create([
+        $initiate = Investment::create([
       "fkuser"=> 1,
         ]);
 
@@ -32,11 +32,20 @@ class DashboardController extends Controller
 //update capital from zero to current amount
 
     public function addcapital(Request $request){
-      
-          $updatecapital = InvestmentsModel::where('fkuser', 1)->update([
-          'capital'=>$request->input('capital'),
-          ]);
 
+      $currentcapital = Investment::where('fkuser', 1)->get()->first();
+
+      $capitalfield = $currentcapital -> capital;
+
+      $additionalCapital = $request->input('capital');
+    
+    // dd($additionalCapital);
+
+    $totalCurrentCapital = $capitalfield + $additionalCapital;
+      
+       Investment::where('fkuser', 1)->update([
+          'capital'=> $totalCurrentCapital,
+          ]);
 return back()->with('success', "Capital updated sucessfully");
     }
 }

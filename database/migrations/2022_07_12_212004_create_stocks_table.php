@@ -25,7 +25,7 @@ class CreateStocksTable extends Migration
 
             ////Fk////
             // $table->integer('fkuser')->unsigned();
-            $table->foreignId('fkuser')->references('id')->on('users');
+            $table->foreignId('fkuser')->constrained()->references('id')->on('users');
             
             $table->timestamps(); 
         });

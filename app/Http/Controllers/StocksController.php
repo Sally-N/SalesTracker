@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Stocks;
 use Illuminate\Http\Request;
-use App\Models\InvestmentsModel;
+use App\Models\Investment;
+// use Illuminate\Support\Facades\DB;
 
 class StocksController extends Controller
 {
@@ -39,14 +40,28 @@ $createStock = Stocks::create([
 // get current capital
 
 if ($createStock !== null) {
-    $currentCapitalx = InvestmentsModel::find(1);
+    $currentCapitalx = Investment::where('fkuser', 1)->get()->first(); ///is  an array
+    // $currentCapitalx = DB::select()
 
+//   dd ($currentCapitalx);
     $currentCapital = $currentCapitalx->capital;
+
+    // dd($currentCapital);
+
+    //current working capital
+    $currentWorkingCapital = $currentCapitalx->workingcapital;
 
 $newcapital = $currentCapital - $stockamount;
 
-   dd($newcapital);
+//    dd($newcapital);
+
+ Investment::where('fkuser', 1)->update([
+   'capital' => $newcapital,
+   'workingcapital' =>$currentWorkingCapital + $stockamount,
+]);
+
+            return back()->with('success', "Stock added successfully");
+        }
 }
-return back()->with('success', "Stock added successfully");
-    }
+
 }

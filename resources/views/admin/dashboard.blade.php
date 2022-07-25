@@ -51,6 +51,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
         <form action="{{url('/addcapital')}}" method="post" enctype="multipart/form-data">
+             {{method_field('post')}}
           {{ csrf_field() }}
       <div class="modal-body">
    <input class="form-control mb-4" type="number" name="capital" id="" min="0" placeholder="Input Capital">

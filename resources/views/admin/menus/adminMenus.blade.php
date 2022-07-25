@@ -3,7 +3,7 @@
         <ul class="d-flex flex-row justify-content-around align-items-center">
            <a href="/dashboard"><li>Dashboard</li></a>
            <a href="/stock"><li>Stock</li></a> 
-            <li>Sales</li>
+            <a href="/sales"><li>Sales</li></a>
         </ul>
     </div>
 </div>
